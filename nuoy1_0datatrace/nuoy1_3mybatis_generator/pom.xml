@@ -3,19 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>javatrace</artifactId>
+        <artifactId>nuoy1_0datatrace</artifactId>
         <groupId>com.nnstn.javatrace</groupId>
         <version>1.5.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>01jdbc</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.46</version>
-        </dependency>
-    </dependencies>
+    <artifactId>nuoy1_3mybatis_generator</artifactId>
+
 
 </project>

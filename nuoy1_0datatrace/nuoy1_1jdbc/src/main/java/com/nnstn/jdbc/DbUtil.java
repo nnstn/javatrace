@@ -3,28 +3,45 @@ package com.nnstn.jdbc;
 import java.sql.*;
 
 class DbUtil {
+    private static final String DRIVER = "com.mysql.jdbc.Driver";
     private static final String URL = "jdbc:mysql://localhost:3306/javatrace?useSSL=false";
     private static final String USER = "root";
     private static final String PASSWORD = "123456";
     private static Connection conn = null;
 
     static{
+        System.out.println("数据库连接工具加载");
+    }
+    /**
+     * 打开数据库连接
+     */
+    public static Connection open(){
         try {
             //1.加载驱动程序
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(DRIVER);
             //2. 获得数据库连接
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            return conn;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    public static Connection getConnection(){
-        return conn;
+    /**
+     * 关闭数据库连接
+     */
+    public static void close(Connection conn){
+        if(conn!=null){
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
-
     public static void main(String[] args) throws Exception {
         //1.加载驱动程序
         Class.forName("com.mysql.jdbc.Driver");

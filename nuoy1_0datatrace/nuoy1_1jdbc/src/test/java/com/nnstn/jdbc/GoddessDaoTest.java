@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class GoddessDaoTest {
+
     GoddessDao goddessDao = new GoddessDao();
     DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
     @Test

@@ -9,7 +9,7 @@ public class GoddessDao {
     //增加
     public void addGoddess(Goddess g) throws SQLException {
         //获取连接
-        Connection conn = DbUtil.getConnection();
+        Connection conn = DbUtil.open();
         //sql
         String sql = "INSERT INTO goddess(user_name, sex, age, birthday, email, mobile,"+
             "create_user, create_date, update_user, update_date, isdel)"
@@ -30,12 +30,13 @@ public class GoddessDao {
 
         //执行
         ptmt.execute();
+        DbUtil.close(conn);
     }
 
     public void updateGoddess(Goddess g) throws SQLException {
 
         //获取连接
-        Connection conn = DbUtil.getConnection();
+        Connection conn = DbUtil.open();
         //sql, 每行加空格
         String sql = "UPDATE goddess" +
                 " set user_name=?, sex=?, age=?, birthday=?, email=?, mobile=?,"+
@@ -57,11 +58,12 @@ public class GoddessDao {
 
         //执行
         ptmt.execute();
+        DbUtil.close(conn);
     }
 
     public void delGoddess(int id) throws SQLException {
         //获取连接
-        Connection conn = DbUtil.getConnection();
+        Connection conn = DbUtil.open();
         //sql, 每行加空格
         String sql = "delete from goddess where id=?";
         //预编译SQL，减少sql执行
@@ -72,10 +74,11 @@ public class GoddessDao {
 
         //执行
         ptmt.execute();
+        DbUtil.close(conn);
     }
 
     public List<Goddess> query() throws SQLException {
-        Connection conn = DbUtil.getConnection();
+        Connection conn = DbUtil.open();
         Statement stmt = conn.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT user_name, age FROM goddess");
 
@@ -88,13 +91,14 @@ public class GoddessDao {
 
             gs.add(g);
         }
+        DbUtil.close(conn);
         return gs;
     }
 
     public Goddess get(int id) throws SQLException {
         Goddess g = null;
         //获取连接
-        Connection conn = DbUtil.getConnection();
+        Connection conn = DbUtil.open();
         //sql, 每行加空格
         String sql = "select * from  goddess where id=?";
         //预编译SQL，减少sql执行
@@ -118,6 +122,7 @@ public class GoddessDao {
             g.setUpdateUser(rs.getString("update_user"));
             g.setIsDel(rs.getInt("isdel"));
         }
+        DbUtil.close(conn);
         return g;
     }
 }
