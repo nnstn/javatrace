@@ -21,12 +21,13 @@ public class MybatisTest {
             InputStream inputStream = Resources.getResourceAsStream(resource);
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
             SqlSession session = sqlSessionFactory.openSession();
-            User user = session.selectOne("com.nuoya.mybatis.mapper.UserMapper.selectUser", 1);
+            User user = session.selectOne("com.nuoya.mybatis.mapper.UserMapper.selectUser", 1L);
             System.out.println(user);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+    // 此方法 UserMapper.xml 类不存在也可以
     @Test
     public void test2(){
         try {
