@@ -132,17 +132,29 @@ Configuration、SqlSessionFactory、Session、Executor、MappedStatement、State
 
 源码解析：
 
+![1588029135720](./assets/1588029135720.png)
+
 SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
 ![1587941576407](./assets/1587941576407.png)
 
 SqlSession session = sqlSessionFactory.openSession();
 
+![1588029234753](./assets/1588029234753.png)
+
 ![1587942442584](./assets/1587942442584.png)
 
 User user = session.selectOne("com.nuoya.mybatis.mapper.UserMapper.selectUser", 1);
 
 ![1587944171153](./assets/1587944171153.png)
+
+
+
+usermapper.java 模式
+
+![1588030759099](./assets/1588030759099.png)
+
+
 
 ## Mybatis 逆向工程：
 
