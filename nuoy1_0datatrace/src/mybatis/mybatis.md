@@ -150,9 +150,38 @@ User user = session.selectOne("com.nuoya.mybatis.mapper.UserMapper.selectUser", 
 
 
 
-usermapper.java 模式
+mybatis获取mapper
+
+mybatis之SQL
 
 ![1588030759099](./assets/1588030759099.png)
+
+mybatis之Executor
+
+![1588201190639](./assets/1588201190639.png)
+
+```java
+SimpleExecutor 实际是不干活的
+干活的类：
+org.apache.ibatis.executor.statement.StatementHandler
+org.apache.ibatis.executor.statement.PreparedStatementHandler
+org.apache.ibatis.executor.resultset.ResultSetHandler
+org.apache.ibatis.executor.resultset.DefaultResultSetHandler
+```
+
+![1588201433430](D:\gitlab\javatrace\nuoy1_0datatrace\src\mybatis\assets\1588201433430.png)
+
+Mybatis的缓存
+
+Mybatis的一级缓存默认开启，影响范围为session
+
+![1588202516518](D:\gitlab\javatrace\nuoy1_0datatrace\src\mybatis\assets\1588202516518.png)
+
+![1588202262251](D:\gitlab\javatrace\nuoy1_0datatrace\src\mybatis\assets\1588202262251.png)
+
+
+
+注意缓存击穿问题
 
 
 

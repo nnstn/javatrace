@@ -3,9 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
     <!-- 引入配置文件 -->
     <properties resource="config.properties" />
+
+    <settings>
+        <!--二级缓存开关-->
+        <setting name="cacheEnable" value="true"/>
+    </settings>
 
     <!-- 别名 -->
     <typeAliases>

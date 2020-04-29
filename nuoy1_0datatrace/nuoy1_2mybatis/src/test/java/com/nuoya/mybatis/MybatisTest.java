@@ -42,5 +42,23 @@ public class MybatisTest {
             e.printStackTrace();
         }
     }
+    //测试mybatis的一级缓存
+    @Test
+    public void test3(){
+        try {
+            String resource = "mybatis-config.xml";
+            InputStream inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+            SqlSession session = sqlSessionFactory.openSession();
+            User user1 = session.selectOne("com.nuoya.mybatis.mapper.UserMapper.selectUser", 1L);
+            User user2 = session.selectOne("com.nuoya.mybatis.mapper.UserMapper.selectUser", 1L);
+            session.commit();
+            User user3 = session.selectOne("com.nuoya.mybatis.mapper.UserMapper.selectUser", 1L);
+            User user4 = session.selectOne("com.nuoya.mybatis.mapper.UserMapper.selectUser", 1L);
+//            System.out.println(user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
