@@ -6,10 +6,10 @@ import org.apache.ibatis.annotations.Select;
 public interface UserMapper {
 
     @Select("select * from user where id=#{id}")
-    public User selectUser(Long id);
+    User selectUser(Long id);
 
     @Select("select id,userName,age,phone,`desc` from user where id=#{id}")
-    public User selectUserDetail(Long id);
+    User selectUserDetail(Long id);
 }
 
 

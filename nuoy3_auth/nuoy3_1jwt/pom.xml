@@ -3,19 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>javatrace</artifactId>
+        <artifactId>nuoy3_auth</artifactId>
         <groupId>com.nnstn.javatrace</groupId>
         <version>1.5.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nuoy1_0datatrace</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>nuoy1_1jdbc</module>
-        <module>nuoy1_2mybatis</module>
-        <module>nuoy1_3mybatis_demo</module>
-        <module>nuoy1_4mybatis_boot</module>
-    </modules>
+    <artifactId>nuoy3_1jwt</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+
+    </dependencies>
 </project>

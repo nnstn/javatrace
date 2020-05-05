@@ -9,13 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nuoy1_0datatrace</artifactId>
+    <artifactId>nuoy4_springcode</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>nuoy1_1jdbc</module>
-        <module>nuoy1_2mybatis</module>
-        <module>nuoy1_3mybatis_demo</module>
-        <module>nuoy1_4mybatis_boot</module>
+        <module>nuoy4_1spring_ioc</module>
+        <module>nuoy4_2spring_aop</module>
     </modules>
+
 
 </project>

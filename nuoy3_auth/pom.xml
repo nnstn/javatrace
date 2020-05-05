@@ -9,13 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nuoy1_0datatrace</artifactId>
+    <artifactId>nuoy3_auth</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>nuoy1_1jdbc</module>
-        <module>nuoy1_2mybatis</module>
-        <module>nuoy1_3mybatis_demo</module>
-        <module>nuoy1_4mybatis_boot</module>
+        <module>nuoy3_1jwt</module>
     </modules>
+
 
 </project>

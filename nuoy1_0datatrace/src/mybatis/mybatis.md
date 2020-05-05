@@ -175,6 +175,8 @@ Mybatis的缓存
 
 Mybatis的一级缓存默认开启，影响范围为session
 
+二级缓存作用域全局
+
 ![1588202516518](D:\gitlab\javatrace\nuoy1_0datatrace\src\mybatis\assets\1588202516518.png)
 
 ![1588202262251](D:\gitlab\javatrace\nuoy1_0datatrace\src\mybatis\assets\1588202262251.png)
@@ -225,7 +227,9 @@ XMLMAPPER|ANNOTATEDMAPPER
 </commentGenerator>
 ```
 
+## 通用mapper&mybatis-plus
 
+![1588285902481](D:\gitlab\javatrace\nuoy1_0datatrace\src\mybatis\assets\1588285902481.png)
 
 ## 常见问题
 

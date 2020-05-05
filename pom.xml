@@ -10,6 +10,8 @@
     <modules>
         <module>nuoy1_0datatrace</module>
         <module>nuoy2_designmodel</module>
+        <module>nuoy3_auth</module>
+        <module>nuoy4_springcode</module>
     </modules>
     <name>java学习轨迹</name>
     <description>javatrace</description>
@@ -20,6 +22,7 @@
         <maven.test.skip>true</maven.test.skip>
 
         <java.version>1.8</java.version>
+        <spring-boot.version>2.1.0.RELEASE</spring-boot.version>
         <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
         <commons.lang.version>3.5</commons.lang.version>
         <fastjson.version>1.2.49</fastjson.version>
@@ -50,6 +53,13 @@
 
 	<dependencyManagement>
 		<dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 			<!-- spring-cloud 版本依赖控制 -->
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -65,7 +75,6 @@
             </dependency>
 		</dependencies>
 	</dependencyManagement>
-
     <build>
         <resources>
             <resource>
