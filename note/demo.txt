@@ -1,0 +1,18 @@
+mysql -udluser -pip123456  -h172.21.4.100 -P3306
+
+create database demo default character set utf8；
+grant all privileges on demo.*  to demo identified by 'demo';
+
+docker run -di --name=some-mysql --restart=always \
+	-p 3306:3306 \
+	--privileged=true \
+	-e MYSQL_ROOT_PASSWORD=123456 \
+	-v /aidata/aicp/applications/mysql_data:/var/lib/mysql \
+	--lower_case_table_names=1 mysql:5.7
+参数说明：
+--restart=always 跟随docker启动
+--privileged=true 容器root用户享有主机root用户权限
+-v 映射主机路径到容器
+-e MYSQL_ROOT_PASSWORD=root 设置root用户密码
+-d 后台启动
+--lower_case_table_names=1 设置表名参数名等忽略大小写

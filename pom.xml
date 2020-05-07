@@ -12,6 +12,7 @@
         <module>nuoy2_designmodel</module>
         <module>nuoy3_auth</module>
         <module>nuoy4_springcode</module>
+        <module>nuoy0_demo</module>
     </modules>
     <name>java学习轨迹</name>
     <description>javatrace</description>

@@ -3,19 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>javatrace</artifactId>
+        <artifactId>nuoy4_springcode</artifactId>
         <groupId>com.nnstn.javatrace</groupId>
         <version>1.5.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nuoy4_springcode</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>nuoy4_1spring_ioc</module>
-        <module>nuoy4_2spring_aop</module>
-        <module>nuoy4_3spring_mvc</module>
-    </modules>
+    <artifactId>nuoy4_3spring_mvc</artifactId>
 
 
 </project>

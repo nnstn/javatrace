@@ -8,14 +8,12 @@
         <version>1.5.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>nuoy4_springcode</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>nuoy4_1spring_ioc</module>
-        <module>nuoy4_2spring_aop</module>
-        <module>nuoy4_3spring_mvc</module>
+        <module>nuoy0_1demo</module>
     </modules>
+    <artifactId>nuoy0_demo</artifactId>
+    <name>每日练习</name>
 
 
 </project>
