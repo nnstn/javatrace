@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: office
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/office
+    username: office
+    password: office
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.sitech.aicp: debug

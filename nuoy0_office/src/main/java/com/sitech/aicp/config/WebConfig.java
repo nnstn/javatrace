@@ -12,7 +12,7 @@ public class WebConfig {
     public FilterRegistrationBean<LoginFilter> filterRegistrationBean(){
         FilterRegistrationBean<LoginFilter> bean = new FilterRegistrationBean<LoginFilter>();
         bean.setFilter(new LoginFilter());
-        bean.addUrlPatterns("/pages/component/*");
+        bean.addUrlPatterns("/schedule/*");
         bean.addUrlPatterns("/camera/*");
         return bean;
     }
