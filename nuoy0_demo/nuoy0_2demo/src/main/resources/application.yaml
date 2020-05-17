@@ -1,0 +1,16 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /
+spring:
+  application:
+    name: demo2
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo2
+    username: demo2
+    password: demo2
+#开启驼峰命名转换
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

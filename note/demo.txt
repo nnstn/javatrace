@@ -3,6 +3,14 @@ mysql -udluser -pip123456  -h172.21.4.100 -P3306
 create database demo default character set utf8；
 grant all privileges on demo.*  to demo identified by 'demo';
 
+create table `role` (
+  `id` int(20) not null auto_increment comment '角色id',
+  `role_name` varchar(50) not null comment '角色名称',
+  `create_time` datetime default null comment '创建时间',
+  primary key (`id`)
+) engine=innodb auto_increment=3 default charset=utf8
+
+
 docker run -di --name=some-mysql --restart=always \
 	-p 3306:3306 \
 	--privileged=true \

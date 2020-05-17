@@ -25,6 +25,7 @@ public class SwaggerConfiguration {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
             .apiInfo(apiInfo())
+            .groupName("分组名称")
             .pathMapping("/")
             .select() // 选择那些路径和api会生成document
             .apis(RequestHandlerSelectors.any())// 对所有api进行监控

@@ -13,6 +13,7 @@
         <module>nuoy3_auth</module>
         <module>nuoy4_springcode</module>
         <module>nuoy0_demo</module>
+        <module>nuoy0_office</module>
     </modules>
     <name>java学习轨迹</name>
     <description>javatrace</description>

@@ -11,6 +11,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>nuoy0_1demo</module>
+        <module>nuoy0_2demo</module>
+        <module>nuoy0_3demo</module>
+        <module>nuoy0_4demo</module>
     </modules>
     <artifactId>nuoy0_demo</artifactId>
     <name>每日练习</name>
