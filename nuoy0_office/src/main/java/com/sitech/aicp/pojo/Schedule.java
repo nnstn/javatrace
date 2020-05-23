@@ -21,4 +21,5 @@ public class Schedule {
     private Date lastUpdateTime;
     private String opeationIp;
     private int status; // 0 未分配 1 处理中 2 完成
+
 }

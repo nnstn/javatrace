@@ -14,6 +14,10 @@
         <module>nuoy2_1proxy</module>
         <module>nuoy2_2factory</module>
         <module>nuoy2_3singleton</module>
+        <module>nuoy2_4prototype</module>
+        <module>nuoy2_5proxy</module>
+        <module>nuoy2_6delegate</module>
+        <module>nuoy2_7strategy</module>
     </modules>
     <artifactId>nuoy2_designmodel</artifactId>
 

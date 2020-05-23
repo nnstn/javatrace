@@ -22,4 +22,9 @@ public class ScheduleController {
         PageResult<Schedule> pageResult = scheduleService.getAllSchedule(pageQuery);
         return JsonData.success(pageResult);
     }
+
+    public JsonData insertSchedule(Schedule schedule) {
+        int i = scheduleService.insertSchedule(schedule);
+        return JsonData.success("添加成功");
+    }
 }
