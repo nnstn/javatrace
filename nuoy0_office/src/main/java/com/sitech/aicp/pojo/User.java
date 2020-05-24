@@ -14,11 +14,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long leader;
+
+    private String userCode;
+
     private String userName;
+
+    private String password;
 
     private String email;
 
     private String phone;
+
+    private String salt;
 
     private Date createTime;
 

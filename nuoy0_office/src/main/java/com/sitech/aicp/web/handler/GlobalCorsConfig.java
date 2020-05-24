@@ -18,6 +18,7 @@ public class GlobalCorsConfig {
         //1) 允许的域,不要写*，否则cookie就无法使用了
         config.addAllowedOrigin("wisdom.teamshub.com");
         config.addAllowedOrigin("http://aicp.teamshub.com");
+        config.addAllowedOrigin("http://localhost:8080");
 
         //2) 是否发送Cookie信息
         config.setAllowCredentials(false);

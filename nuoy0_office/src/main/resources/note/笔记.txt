@@ -1,0 +1,2 @@
+1.mybatis mysql布尔类型处理 数据库数据类型使用tinyint(1)
+2.controller接收json请求参数时,注意请求报文key中是否多了空格，导致接收不到参数。

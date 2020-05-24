@@ -8,5 +8,8 @@ import java.util.List;
 
 public interface UserMapper extends Mapper<User> {
     @Select("select * from user")
-    List<User> getAll();
+    List<User> getAllUser();
+
+    @Select("select * from user where user.user_code = #{userCode} or user.email = #{userCode}  ")
+    List<User> getUserByUserCode(String userCode);
 }
