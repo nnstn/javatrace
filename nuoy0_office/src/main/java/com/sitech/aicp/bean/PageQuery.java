@@ -9,7 +9,9 @@ import java.util.Date;
 public class PageQuery {
 
 
-    private String key;		//关键字查询
+    private String key1;		//关键字查询
+    private String key2;		//关键字查询
+    private String key3;		//关键字查询
 
     @Min(value = 1, message = "当前页码不合法")
     private int pageNo = 1;

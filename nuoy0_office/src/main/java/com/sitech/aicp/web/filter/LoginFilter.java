@@ -27,12 +27,14 @@ public class LoginFilter implements Filter {
         User sysUser = (User) req.getSession().getAttribute("user");
         if (sysUser == null) {
             // ajax请求
-            if (req.getHeader("x-requested-with") != null && req.getHeader("x-requested-with").equalsIgnoreCase("XMLHttpRequest")) {
-                writeText(JsonMapper.obj2String(JsonData.fail("用户未登录")), resp);
-                return;
-            }
-            String path = "/pages/login/login.html";
-            resp.sendRedirect(path);
+//            if (req.getHeader("x-requested-with") != null && req.getHeader("x-requested-with").equalsIgnoreCase("XMLHttpRequest")) {
+//                writeText(JsonMapper.obj2String(JsonData.fail("用户未登录")), resp);
+//                return;
+//            }
+//            String path = "/pages/login/login.html";
+//            resp.sendRedirect(path);
+
+            writeText(JsonMapper.obj2String(JsonData.fail("用户未登录")), resp);
             return;
         }
         RequestHolder.add(sysUser);

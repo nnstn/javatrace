@@ -40,11 +40,14 @@ public class AuthService {
      * 用户注册
      */
     public int registerUser(User user){
+        if(null!=userService.getUserByUserCode(user.getUserName())){
+            throw new RuntimeException("用户已存在");
+        }
+
         if(null==user.getLeader()){
             user.setLeader(0L);
         }
         String salt = getSalt();
-
         user.setSalt(salt);
         user.setPassword(PasswordUtil.getMD5String(user.getPassword()+salt));
 

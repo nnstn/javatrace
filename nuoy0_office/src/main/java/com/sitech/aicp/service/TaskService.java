@@ -28,7 +28,7 @@ public class TaskService {
         // 分页
         PageHelper.startPage(pageQuery.getPageNo(), pageQuery.getPageSize(),pageQuery.getSortBy()+(pageQuery.getDesc() ? " DESC" : " ASC"));
         // 查询
-        List<Task> tasks = taskMapper.getAllTask();
+        List<Task> tasks = taskMapper.getAllTask(pageQuery);
 
         PageInfo<Task> info = new PageInfo<>(tasks);
         // 解析分页结果
@@ -41,13 +41,14 @@ public class TaskService {
         HttpServletRequest request = RequestHolder.getCurrentRequest();
 
         if(null==task.getDispatcher()){
-            task.setDispatcher(user.getId());
+            task.setDispatcher(user.getUserCode());
         }
         if(null==task.getTasker()){
-            task.setTasker(user.getId());
+            task.setTasker(user.getUserCode());
         }
-
-        task.setStatus(1); //任务初始状态为
+        if (0==task.getState()){
+            task.setState(1); //任务初始状态为
+        }
 
         task.setCreateTime(new Date());
         task.setLastUpdateTime(new Date());

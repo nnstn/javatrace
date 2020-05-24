@@ -23,7 +23,7 @@ public class AuthController {
     public JsonData login(@RequestBody User user, HttpServletRequest request) {
         user = authService.login(user);
         request.getSession().setAttribute("user",user);
-        return JsonData.success("登录成功");
+        return JsonData.success("登录成功",user);
     }
 
     @PostMapping("register")

@@ -31,11 +31,29 @@ create table `task` (
   `task_type`  int(2) not null comment '任务类型 1:开发编码 2:会议讨论 3:设计相关 4:文档编写 5:bug处处理 6:环境部署 ',
   `notice_type` int(2) not null comment '通知类型 1 不提醒 2 邮件提醒 3 易信提醒',
   `topping` tinyint(1) not null comment '是否置顶',
-  `status` int(2)  comment '任务状态 0 新增 1 处理中 2 完成',
+  `state` int(2)  comment '任务状态 0 新增 1 处理中 2 完成',
 
   `create_time` datetime default null comment '创建时间',
   `last_update_time` datetime default null comment '最后更新时间',
   `opeation_ip`     varchar(50) not null comment '创建用户IP',
   primary key (`id`)
-) engine=innodb auto_increment=1 default charset=utf8
+) engine=innodb auto_increment=1 default charset=utf8;
 
+DROP TABLE IF EXISTS `task`;
+create table `task` (
+  `id` bigint(20) not null auto_increment comment '任务ID',
+  `dispatcher` varchar(50) not null  comment   '派发任务用户ID',
+  `tasker`     varchar(50)  not null comment   '执行任务用户ID',
+  `task_name`  varchar(50) not null  comment    '任务名称',
+  `start_date` datetime not null comment '开始日期',
+  `end_date`   datetime not null comment '结束日期',
+  `task_type`   varchar(50) not null  comment '任务类型 1:开发编码 2:会议讨论 3:设计相关 4:文档编写 5:bug处处理 6:环境部署 ',
+  `notice_type` varchar(50) not null comment '通知类型 1 不提醒 2 邮件提醒 3 易信提醒',
+  `topping` tinyint(1) not null comment '是否置顶',
+  `state` int(2)  comment '任务状态 1:新增 2 处理中 3 完成',
+
+  `create_time` datetime default null comment '创建时间',
+  `last_update_time` datetime default null comment '最后更新时间',
+  `opeation_ip`     varchar(50) not null comment '创建用户IP',
+  primary key (`id`)
+) engine=innodb auto_increment=1 default charset=utf8;

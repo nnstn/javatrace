@@ -21,6 +21,9 @@ public class JsonData {
     public static JsonData success(Object object) {
         return new JsonData(true, "成功", object);
     }
+    public static JsonData success(String msg,Object object) {
+        return new JsonData(true, msg, object);
+    }
 
     public static JsonData fail(String message) {
         return new JsonData(false, message, null);
