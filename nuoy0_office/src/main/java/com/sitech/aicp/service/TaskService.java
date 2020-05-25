@@ -2,8 +2,8 @@ package com.sitech.aicp.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.sitech.aicp.bean.PageQuery;
 import com.sitech.aicp.bean.PageResult;
+import com.sitech.aicp.bean.query.TaskPageQuery;
 import com.sitech.aicp.mapper.TaskMapper;
 import com.sitech.aicp.pojo.Task;
 import com.sitech.aicp.pojo.User;
@@ -24,7 +24,7 @@ public class TaskService {
     /**
      * 分页查询
      */
-    public PageResult<Task> getAllTask(PageQuery pageQuery){
+    public PageResult<Task> getAllTask(TaskPageQuery pageQuery){
         // 分页
         PageHelper.startPage(pageQuery.getPageNo(), pageQuery.getPageSize(),pageQuery.getSortBy()+(pageQuery.getDesc() ? " DESC" : " ASC"));
         // 查询

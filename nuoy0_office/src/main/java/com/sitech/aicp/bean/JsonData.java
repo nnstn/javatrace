@@ -5,6 +5,9 @@ import lombok.Data;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author wangjn_bj
+ */
 @Data
 public class JsonData {
 

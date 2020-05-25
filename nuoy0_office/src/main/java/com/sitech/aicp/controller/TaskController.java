@@ -1,8 +1,8 @@
 package com.sitech.aicp.controller;
 
 import com.sitech.aicp.bean.JsonData;
-import com.sitech.aicp.bean.PageQuery;
 import com.sitech.aicp.bean.PageResult;
+import com.sitech.aicp.bean.query.TaskPageQuery;
 import com.sitech.aicp.pojo.Task;
 import com.sitech.aicp.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class TaskController {
     TaskService TaskService;
 
     @PostMapping("getall")
-    public JsonData getAllTask(@RequestBody PageQuery pageQuery) {
+    public JsonData getAllTask(@RequestBody TaskPageQuery pageQuery) {
         PageResult<Task> pageResult = TaskService.getAllTask(pageQuery);
         return JsonData.success(pageResult);
     }
@@ -25,6 +25,7 @@ public class TaskController {
         TaskService.insertTask(task);
         return JsonData.success("添加成功");
     }
+
     @PostMapping("update")
     public JsonData updateTask(@RequestBody Task task) {
         TaskService.updateTask(task);
