@@ -4,17 +4,18 @@ import com.sitech.aicp.bean.query.TaskPageQuery;
 import com.sitech.aicp.pojo.Task;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.SelectProvider;
+import org.apache.ibatis.annotations.UpdateProvider;
 import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
 public interface TaskMapper extends Mapper<Task> {
 
-//    @Select("select * from task where task_name like CONCAT('%',#{key},'%')")
-//    List<Task> getAllTask(PageQuery pageQuery);
-
     @SelectProvider(type = DynamicTaskProvider.class, method = "getAllTaskByCondition")
     List<Task> getAllTask(TaskPageQuery pageQuery);
+
+    @UpdateProvider(type = DynamicTaskProvider.class, method = "updateTaskStateBatch")
+    int updateTaskStateBatch(List<Long> ids,Integer state);
 
     class DynamicTaskProvider{
         public String getAllTaskByCondition(TaskPageQuery pageQuery){
@@ -31,6 +32,18 @@ public interface TaskMapper extends Mapper<Task> {
             }
             return sqlBuilder.toString();
         }
-    }
 
+        public String updateTaskStateBatch(List<Long> ids,Integer state){
+            if (null==ids||ids.size()==0||null==state){
+                throw new RuntimeException("SQL参数有误");
+            }
+            StringBuilder updateSql = new StringBuilder();
+            updateSql.append("update task set state = "+state+" where id in (");
+            for (int i=0 ;i < ids.size();i++){
+                updateSql.append(ids.get(i)+", ");
+            }
+            updateSql.append("0 )");
+            return updateSql.toString();
+        }
+    }
 }

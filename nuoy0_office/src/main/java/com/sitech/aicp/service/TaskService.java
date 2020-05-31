@@ -8,6 +8,7 @@ import com.sitech.aicp.mapper.TaskMapper;
 import com.sitech.aicp.pojo.Task;
 import com.sitech.aicp.pojo.User;
 import com.sitech.aicp.web.handler.RequestHolder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @Service
 public class TaskService {
 
@@ -24,9 +26,9 @@ public class TaskService {
     /**
      * 分页查询
      */
-    public PageResult<Task> getAllTask(TaskPageQuery pageQuery){
+    public PageResult<Task> getAllTask(TaskPageQuery pageQuery) {
         // 分页
-        PageHelper.startPage(pageQuery.getPageNo(), pageQuery.getPageSize(),pageQuery.getSortBy()+(pageQuery.getDesc() ? " DESC" : " ASC"));
+        PageHelper.startPage(pageQuery.getPageNo(), pageQuery.getPageSize(), pageQuery.getSortBy() + (pageQuery.getDesc() ? " DESC" : " ASC"));
         // 查询
         List<Task> tasks = taskMapper.getAllTask(pageQuery);
 
@@ -36,17 +38,17 @@ public class TaskService {
 
     }
 
-    public int insertTask(Task task){
+    public int insertTask(Task task) {
         User user = RequestHolder.getCurrentUser();
         HttpServletRequest request = RequestHolder.getCurrentRequest();
 
-        if(null==task.getDispatcher()){
+        if (null == task.getDispatcher()) {
             task.setDispatcher(user.getUserCode());
         }
-        if(null==task.getTasker()){
+        if (null == task.getTasker()) {
             task.setTasker(user.getUserCode());
         }
-        if (0==task.getState()){
+        if (0 == task.getState()) {
             task.setState(1); //任务初始状态为
         }
 
@@ -56,11 +58,16 @@ public class TaskService {
         return taskMapper.insert(task);
     }
 
-    public int updateTask(Task task){
+    public int updateTask(Task task) {
         task.setLastUpdateTime(new Date());
         return taskMapper.updateByPrimaryKey(task);
     }
-    public int deleteTask(Long taskId){
+
+    public int deleteTask(Long taskId) {
         return taskMapper.deleteByPrimaryKey(taskId);
+    }
+
+    public void updateTaskStateBatch(List<Long> ids, Integer state) {
+        log.info("更新了: " + taskMapper.updateTaskStateBatch(ids, state) + " 条数据");
     }
 }
