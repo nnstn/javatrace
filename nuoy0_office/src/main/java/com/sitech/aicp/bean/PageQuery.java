@@ -3,7 +3,7 @@ package com.sitech.aicp.bean;
 import lombok.Data;
 
 import javax.validation.constraints.Min;
-import java.util.Date;
+import java.sql.Date;
 
 @Data
 public class PageQuery {

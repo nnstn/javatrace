@@ -38,6 +38,11 @@ public class TaskService {
 
     }
 
+    public List<Task> getTaskSchedule(TaskPageQuery pageQuery) {
+        List<Task> tasks = taskMapper.getAllTask(pageQuery);
+        return tasks;
+    }
+
     public int insertTask(Task task) {
         User user = RequestHolder.getCurrentUser();
         HttpServletRequest request = RequestHolder.getCurrentRequest();

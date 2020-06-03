@@ -21,6 +21,11 @@ public class TaskController {
         PageResult<Task> pageResult = taskService.getAllTask(pageQuery);
         return JsonData.success(pageResult);
     }
+    @PostMapping("schedule")
+    public JsonData getSchedule(@RequestBody TaskPageQuery pageQuery) {
+        List<Task> schedules = taskService.getTaskSchedule(pageQuery);
+        return JsonData.success(schedules);
+    }
 
     @PostMapping("insert")
     public JsonData insertTask(@RequestBody Task task) {
@@ -44,4 +49,5 @@ public class TaskController {
         taskService.updateTaskStateBatch(ids,3);
         return JsonData.success("删除成功");
     }
+
 }

@@ -30,6 +30,12 @@ public interface TaskMapper extends Mapper<Task> {
             if(StringUtils.isNoneBlank(pageQuery.getState())){ //按任务任务状态
                 sqlBuilder.append(" and  state ='"+pageQuery.getState().trim()+"'");
             }
+            if(null!=pageQuery.getStartTime()){
+                sqlBuilder.append(" and  end_date > '"+pageQuery.getStartTime()+"' ");
+            }
+            if(null!=pageQuery.getEndTime()){
+                sqlBuilder.append(" and  start_date < '"+pageQuery.getEndTime()+"' ");
+            }
             return sqlBuilder.toString();
         }
 
